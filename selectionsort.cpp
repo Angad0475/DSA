@@ -23,9 +23,9 @@ void selectionsort()
         {
             if(a[j]<a[i])
             {
-                temp=a[j];
-                a[j]=a[i];
-                a[i]=temp;
+                temp=a[i];
+                a[i]=a[j];
+                a[j]=temp;
             }
 
 
