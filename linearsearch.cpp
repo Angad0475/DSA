@@ -4,7 +4,7 @@ using namespace std;
 
 int a[n];
 int i;
-int key;
+int element;
 
 void display()
 {
@@ -17,9 +17,9 @@ void linearsearch()
 {
     for(i=0;i<=n-1;i++)
     {
-        if(a[i]==key)
+        if(a[i]==element)
         {
-            printf("the %d is at index %d",key ,i);
+            printf("the %d is at index %d",element ,i);
         }             
     }
  
@@ -37,7 +37,7 @@ int main()
     display();
 
     printf("enter the elemnt:\n ");
-    scanf("%d",&key);
+    scanf("%d",&element);
 
     linearsearch();
 
