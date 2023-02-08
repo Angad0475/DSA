@@ -11,7 +11,7 @@ void enqueue()
 {
     cout << "enter the data " << endl;
     cin >> queue[i];
-    if(front==-1)
+    if(front=-1)
     {
         front=0;
     }
