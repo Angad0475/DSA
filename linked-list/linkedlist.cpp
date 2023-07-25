@@ -18,10 +18,10 @@ void traversal(){
 }
 void insertatbeginning()
 {
-    node* ptr;
+    node* ptr;        //a new operator is used to allocate memory to the pointer.5
     ptr=new node;
     if(head==NULL){
-
+                
     cout << "enter the elemnt"<<endl;
     cin >> ptr->data;
 
