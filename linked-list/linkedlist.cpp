@@ -52,7 +52,7 @@ void insertinbetween()
     cout<<"enter the index at which u want to insert"<<endl;
     cin >> index;
     
-    for(i=0;i<=index-1;i++)
+    for(i=0;i<index-1;i++)
     {
         p=p->next;
     }
