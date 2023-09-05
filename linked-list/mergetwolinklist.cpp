@@ -1,33 +1,24 @@
-#include<iostream>
-using namespace std;
 Node* sortedMerge(Node* head1, Node* head2)  
 {  
+    Node* result=NULL;
+    
     if(head1==NULL){
         return head2;
     }
-    if(head2==NULL){
+    else if (head2==NULL){
         return head1;
     }
-    if(head1->data>head2->data){
-        Node*temp=head1;
-        head1=head2;
-        head2=temp;
-    }
-        Node *ans=head1;
-    
-    while(head1 && head2 !=NULL)
-    {
-        Node *temp=head1;
-        while(head1 && head1->data<=head2->data){
-            temp=head1;
-            head1=head1->next;
-        }
-        temp->next=head2;
+    if(head1->data<=head2->data){
         
-        Node *tmp=head1;
-        head1=head2;
-        head2=tmp;
+        result=head1;
+        result->next=sortedMerge(head1->next,head2);
     }
     
-    return ans;
+    else{
+        result=head2;
+        result->next=sortedMerge(head1,head2->next);
+    }
+    
+    return result;
+    
 }  
