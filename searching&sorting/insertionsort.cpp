@@ -1,50 +1,19 @@
-#include<iostream>
-using namespace std;
-#define n 5
-int arr[n];
-
-void insertionSort()
-{
-    int i;
-    int j;
-    int temp;
-    for(i=0;i<=n-1;i++)
+void insertionSort(int arr[], int n)
     {
-        for(j=1;j<=n-1;j++)
+        int i;int j;
+        int temp;
+        for(i=1;i<=n-1;i++)
         {
-            if(arr[j]<arr[j-1])
+            for(j=i;j<=n-1;j++)
             {
-                temp=arr[j];
-                arr[j]=arr[j-1];
-                arr[j-1]=temp;
+                if(arr[j]<arr[i-1])
+                {
+                    temp=arr[j];
+                    arr[j]=arr[i-1];
+                    arr[i-1]=temp;
+                }
             }
         }
     }
-}
-
-void display()
-{
-    int i;
-    for(i=0;i<=n-1;i++)
-    {
-        cout<<"the elments are  "<<arr[i]<<endl;
-    }
-}
-
-int main()
-
-{
-    cout <<"enter the elemnts"<<endl;
-
-    for(int i=0;i<=n-1;i++)
-    {
-        cin >> arr[i];
-    }
- 
-    cout <<"running selection sort"<<endl;
-    insertionSort();
-
-    display();
-
-    return 0;
-}
+    
+};
