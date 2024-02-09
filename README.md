@@ -1,2 +1,1 @@
-# DSA
-problems solved 👍🏻
+Repository of problems solved 👍🏻
