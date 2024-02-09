@@ -7,13 +7,14 @@ class Solution {
             if (arr[mid]===k){
                 return mid
             }
-            else if(arr[mid]<k){   // if mid is small than k find to the left side
-               start = mid + 1 
-            }else{
-                end = mid - 1
+            else if(arr[mid]<k){   // if mid is smaller than key value then we will shift the start towards right. 
+                
+               start = mid + 1; 
+            }else{// if key value is smaller than mid then we will shift the end towards left.
+                end = mid - 1;
             }
         }
-        return -1
+        return -1;
     }
 }
     
