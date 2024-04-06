@@ -16,6 +16,6 @@ var reverseList = function(head) { //head is the first node.
             prev=current;
             current=next;
     }
-    head=prev;
+    head=prev; //at last the prev variable containg the node is now contained by head variable. so that we can call the linklist by the head.
     return head;
 };
