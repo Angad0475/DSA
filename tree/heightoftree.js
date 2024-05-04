@@ -1,8 +1,8 @@
 //class Node{
    constructor(val){
 this.val=val;
-this.left=null;
-this.right=null;
+this.left=null;            
+this.right=null;       //height of thr tree is the maximum depth from the root node to the leaf node so question can also comes like find the maximum depth .
    }
 }//             //a node containing root value and left child and rght child.
 
