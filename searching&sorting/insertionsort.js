@@ -1,22 +1,14 @@
-class Solution
-{
-  //Function to sort the array using insertion sort algorithm.
-  insertionSort(arr,n){
-    var i;
-    var j;
+var sortArray = function(nums) {
+    var n=nums.length;
     var temp;
-    
-    for(i=1;i<=n-1;i++){
-        for(j=i;j<=n-1;j++){
-            if(arr[j]<arr[i-1]){
-                temp=arr[i-1];
-                arr[i-1]=arr[j];
-                arr[j]=temp;
+    for(var i=1;i<n;i++){  // the first loop is for passes and in insertion sort the first pass starts from 1 index as it compares the previous element.
+        for(var j=i;j<=n-1;j++){ //the second loop is for using the second pointer for placing the element and swapping with previous element.
+            if(nums[j]<nums[i-1]){ 
+                temp=nums[i-1];
+                nums[i-1]=nums[j];
+                nums[j]=temp;
             }
         }
     }
-    return arr;
-    
-  }
-    
+    return nums;
 }
