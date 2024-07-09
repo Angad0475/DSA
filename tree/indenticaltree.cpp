@@ -1,24 +1,19 @@
-class Solution
-{
-    public:
-    //Function to check if two trees are identical.
-    bool isIdentical(Node *r1, Node *r2)
+var isSameTree = function(p, q) {
+    
+    if (p == undefined && q == undefined)
     {
-        if(r1==NULL && r2== NULL){
-            return true;
-        }
-        if(r1!=NULL && r2==NULL){
-            return false;
-        }
-        if(r1==NULL && r2!=NULL){
-            return false;
-        }
-        
-        if(r1->data==r2->data && isIdentical(r1->left,r2->left) && isIdentical(r1->right,r2->right)){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return true;
     }
+
+    if(p == undefined || q == undefined)
+    {
+        return false;
+    }
+
+    if(p.val != q.val) //IF THE RIIT VALUR IS NOT EQUAL THEN WE WILL RETURN FALSE ELSE WE WILL RETURN   FOR THE RIGHT TREE ND LEFT SUBTREE.
+    {
+        return false;
+    }
+
+    return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
 };
