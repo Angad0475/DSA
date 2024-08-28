@@ -1,10 +1,12 @@
-int remove_duplicate(int a[],int n){
-        int result=1;
-        for(int i=1;i<n;i++){
-            if(a[result-1]!=a[i]){
-                a[result]=a[i];
-                result++;
-            }
+var removeDuplicates = function(nums) {
+    let n=nums.length;
+    unique_element=1;
+    for(let i=0;i<=n-1;i++){
+        if(nums[i]!=nums[unique_element-1]){
+            nums[unique_element]=nums[i];
+            unique_element++;
         }
-        return result;
     }
+     return unique_element;
+
+};
