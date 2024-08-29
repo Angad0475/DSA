@@ -1,11 +1,11 @@
-const twosum= function(nums,target){
-    let map = new Map();
-    for(let i=0;i< nums.length;i++){
+var twoSum = function(nums, target) {
+    var arr=new Map();
+    for(let i=0;i<=nums.length-1;i++){
         let targetValue=target-nums[i];
-        if(map.has(targetValue)){ //has check whether the key is present in the map .
-            return (map.get(targetValue),i); //gets the key and return the valueof that key .
+
+        if(arr.has(targetValue)){
+            return([arr.get(targetValue),i]);
         }
-        map.set(nums[i],i);
-        
+        arr.set(nums[i],i);
     }
-}
+};
