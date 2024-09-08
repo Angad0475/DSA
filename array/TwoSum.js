@@ -10,3 +10,23 @@ var twoSum = function(nums, target) {
         arr.set(nums[i],i);
     }
 };
+
+
+/*cpp code */
+
+vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int,int>arr;
+
+        arr[nums[0]]=0;
+
+        for(int i=1;i<nums.size();i++){
+            int targetValue= target-nums[i];
+
+            if(arr.find(targetValue)!=arr.end()){
+                return {arr[targetValue],i};
+            }
+            arr[nums[i]]=i;
+        }
+        return {};
+    }
+};
