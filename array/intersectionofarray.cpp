@@ -1,23 +1,31 @@
- int NumberofElementsInIntersection(int a[], int b[], int n, int m) {
-    
-        sort(a,a+n);
-        sort(b,b+m);
-        int i=0,j=0,count=0,last=INT_MIN;
-        while(i<n && j<m){
-            if(a[i]==b[j]){
-                if(last!=a[i]){
-                    count++;
-                    last = a[i];
-                }
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        int i=0;
+        int j=0;
+        sort(nums1.begin(),nums1.end());
+        sort(nums2.begin(),nums2.end());
+        vector<int>arr;
+        while(i<nums1.size() &&j<nums2.size()){
+            if(nums1[i]==nums2[j])
+            {
+                arr.push_back(nums1[i]);
                 i++;
                 j++;
             }
-            else if(a[i]>b[j]){
-                j++;
+            else if(nums1[i]<nums2[j]){
+                i++;
             }
             else{
-                i++;
+                j++;
             }
         }
-        return count;
+        set<int>st(arr.begin(),arr.end());
+        vector<int>ans;
+        for(auto it: st)
+        {
+            ans.push_back(it);
+        }
+        return ans;
     }
+};
