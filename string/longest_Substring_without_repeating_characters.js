@@ -1,20 +1,22 @@
-var lengthOfLongestSubstring = function(s) {
-    let start=0;
-    let end =0;
-    let maxlength=0;
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int start=0;
+        int maxlength=0;
+        int end=0;
 
-    const uniquecharacters= new Set();
-
-    while (end< s.length){
-        if(!uniquecharacters.has(s[end])){
-            uniquecharacters.add(s[end]);
-            end++;
-            maxlength= Math.max(maxlength,uniquecharacters.size);
-        }else{
-            uniquecharacters.delete(s[start]);
-            start++;
+        unordered_set<char>charSet;
+        while(end<s.length()){
+            if(charSet.find(s[end])==NULL){
+                charSet.insert(s[end]);
+                end++;
+                maxlength=max(maxlength,end-start);
+            }
+            else{
+               charSet.erase(s[start]);
+               start++;
+            }
         }
+        return maxlength;
     }
-    return maxlength;
-
 };
