@@ -1,12 +1,18 @@
-var removeDuplicates = function(nums) {
-    let n=nums.length;
-    unique_element=1;
-    for(let i=0;i<=n-1;i++){
-        if(nums[i]!=nums[unique_element-1]){
-            nums[unique_element]=nums[i];
-            unique_element++;
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        set<int>s;
+        int it;
+        int cnt = 0;
+        for(int i=0;i<nums.size();i++)
+        {
+            s.insert(nums[i]);
         }
+        nums.clear();
+        for(auto it : s)
+        {
+            nums.push_back(it);
+        }
+        return s.size();
     }
-     return unique_element;
-
 };
