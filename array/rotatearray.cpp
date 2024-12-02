@@ -1,26 +1,22 @@
-int temp[n];
- 
-    // Keeping track of the current index
-    // of temp[]
-    int k = 0;
- 
-    // Storing the n - d elements of
-    // array arr[] to the front of temp[]
-    for (int i = d; i < n; i++) {
-        temp[k] = arr[i];
-        k++;
+class Solution {
+public:
+    void reverse(vector<int>&arr,int start,int end){
+        int temp;
+        while(start<end){
+            temp=arr[start];
+            arr[start]=arr[end];
+            arr[end]=temp;
+
+            start++;
+            end--;
+        }
     }
- 
-    // Storing the first d elements of array arr[]
-    //  into temp
-    for (int i = 0; i < d; i++) {
-        temp[k] = arr[i];
-        k++;
+     
+    void rotate(vector<int>& nums, int k) {
+        int n= nums.size();
+        k=k%n;
+        reverse(nums,0,n-k-1); //first part of the array 
+        reverse(nums,n-k,n-1);//second part of array.
+        reverse(nums,0,n-1);//whole array .
     }
- 
-    // Copying the elements of temp[] in arr[]
-    // to get the final rotated array
-    for (int i = 0; i < n; i++) {
-        arr[i] = temp[i];
-    }
-}
+};
