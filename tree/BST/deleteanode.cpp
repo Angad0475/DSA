@@ -1,45 +1,56 @@
-Node* getSuccessor(Node* curr){
-    curr=curr->right;
-    while(curr!=NULL && curr->left!=NULL){
-        curr=curr->left;
+class Solution {
+public:
+    // Helper function to find the in-order successor
+    TreeNode* successor(TreeNode* curr) {
+        curr = curr->right;
+        while (curr != NULL && curr->left != NULL) {
+            curr = curr->left;
+        }
+        return curr;
     }
-        
-    return curr;
-    
-}
-Node *deleteNode(Node *root, int X) {
-    if(root==NULL){
-        return NULL;
-    }
-    if(X<root->data){
-        root->left=deleteNode(root->left,X);
-    }
-    else if(X>root->data){
-        root->right=deleteNode(root->right,X);
-    }
-    else{
-        if(root->left==NULL && root->right==NULL)
-        {
-            free(root);
+
+    TreeNode* deleteNode(TreeNode* root, int key) {
+        if (root == NULL) {
             return NULL;
         }
-        else if(root->left==NULL){
-            Node* temp= root->right;
-            free(root);
-            return temp;
+
+        // If the key to be deleted is smaller than the root's key, then it lies in the left subtree
+        if (key < root->val) {
+            root->left = deleteNode(root->left, key);
         }
-        else if(root->right==NULL)
-        {
-            Node* temp=root->right;
-            free(root);
-            return temp;
+        // If the key to be deleted is greater than the root's key, then it lies in the right subtree
+        else if (key > root->val) {
+            root->right = deleteNode(root->right, key);
         }
-        else if(root->left!=NULL && root->right!=NULL){
-            Node* succ=getSuccessor(root);
-            root->data=succ->data;
-            root->right=deleteNode(root->right,succ->data);
+        else {
+            // Node to be deleted is found
+
+            // Case 1: Node has no children (leaf node)
+            if (root->left == NULL && root->right == NULL) {
+                delete root;  // Deallocate memory
+                return NULL;
+            }
+            // Case 2: Node has one child
+            else if (root->left == NULL) {
+                TreeNode* temp = root->right;
+                delete root;  // Deallocate memory
+                return temp;
+            }
+            else if (root->right == NULL) {
+                TreeNode* temp = root->left;
+                delete root;  // Deallocate memory
+                return temp;
+            }
+            // Case 3: Node has two children
+            else {
+                // Find the inorder successor (smallest node in the right subtree)
+                TreeNode* succ = successor(root);
+                root->val = succ->val;  // Copy the successor's value to the current node
+                // Delete the inorder successor
+                root->right = deleteNode(root->right, succ->val);
+            }
         }
+
+        return root;
     }
-    
-    return root;
-}
+};
