@@ -1,14 +1,17 @@
-bool search(Node* root, int x) {
-    if(root==NULL){
-        return false;
+class Solution {
+public:
+    TreeNode* searchBST(TreeNode* root, int val) {
+        if(root==NULL){
+            return NULL;
+        }
+        if(val<root->val){
+            return searchBST(root->left,val);
+        }
+        else if(val>root->val){
+            return searchBST(root->right,val);
+        }
+        else{
+            return root;
+        }
     }
-    if(root->data==x){
-        return true;
-    }
-    if(root->data>x){
-        return search(root->left,x);
-    }
-    else{
-        return search(root->right,x);
-    }
-}
+};
