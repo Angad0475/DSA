@@ -14,8 +14,8 @@ public:
         return MAXI;
     }
 
-    int requiredHours(vector<int>& v, int hourly) {
-        int totalHours = 0;
+    double requiredHours(vector<int>& v, int hourly) {
+        double totalHours = 0;
         int n = v.size();
         for (int i = 0; i < n; i++) {
             totalHours += ceil((double)v[i] / (double)hourly);
@@ -28,7 +28,7 @@ public:
 
         while (low <= high) {
             int mid = low + (high - low) / 2;
-            int totalH = requiredHours(piles, mid); // Fixed variable name
+            double totalH = requiredHours(piles, mid); // Fixed variable name
 
             if (totalH <= h) {
                 high = mid - 1;
